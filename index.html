@@ -39,7 +39,7 @@
           for(i = 0; i < msgArray.length; i++){
             this.hiddenSpanArray.push("<span hidden>" + msgArray[i] + "</span>")
           }
-          return this.hiddenSpanArray
+          return this.hiddenSpanArray;
         };
 
         //generate span tags with random characters
@@ -48,17 +48,17 @@
           for(i = 0; i < numOfSpans; i++){
             this.randomSpanArray.push("<span>" + scrambledCharacters.charAt(Math.floor(Math.random() * scrambledCharacters.length)) + "</span>")
           }
-          return this.randomSpanArray
+          return this.randomSpanArray;
         };
 
         //merge hidden span array with random span array, keeping the order of the hidden span array (message) intact
         Scrambler.prototype.buildScrambler = function(){
-          this.generateHiddenSpans()
-          this.generateRandomSpans()
+          this.generateHiddenSpans();
+          this.generateRandomSpans();
           //generate random incrementing indexes
-          var max = this.randomSpanArray.length
-          var range = max / this.hiddenSpanArray.length
-          var prevNum = 0
+          var max = this.randomSpanArray.length;
+          var range = max / this.hiddenSpanArray.length;
+          var prevNum = 0;
           for(i = 0; i < this.hiddenSpanArray.length; i++){
             function randIndex(){
               prevNum = prevNum + Math.floor(Math.random() * range + 1);
@@ -68,8 +68,8 @@
             //insert hidden spans at random incrementing indexes
             this.randomSpanArray.splice(index, 0, this.hiddenSpanArray[i]);
           }
-          var mergedArray = this.randomSpanArray
-          this.setScrambledMessage(mergedArray)
+          var mergedArray = this.randomSpanArray;
+          this.setScrambledMessage(mergedArray);
         }
 
         //set the contents of merged array to body
