@@ -1,9 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <title>Message Scrambler/Unscrambler</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<script>
-			(function($) {
+      (function($) {
 
         //Unscrambler
         function Unscrambler(){
@@ -12,7 +14,7 @@
           };
 
         Unscrambler.prototype.displayText = $(function(){
-        	var result = Unscrambler();
+          var result = Unscrambler();
           $("body").html(result);
         });
 
@@ -35,7 +37,7 @@
         Scrambler.prototype.generateHiddenSpans = function(){
           var msgArray = this.message.split("");
           for(i = 0; i < msgArray.length; i++){
-          	this.hiddenSpanArray.push("<span hidden>" + msgArray[i] + "</span>")
+            this.hiddenSpanArray.push("<span hidden>" + msgArray[i] + "</span>")
           }
           return this.hiddenSpanArray
         };
@@ -44,7 +46,7 @@
         Scrambler.prototype.generateRandomSpans = function(){
           var numOfSpans = this.randomInteger;
           for(i = 0; i < numOfSpans; i++){
-          	this.randomSpanArray.push("<span>" + scrambledCharacters.charAt(Math.floor(Math.random() * scrambledCharacters.length)) + "</span>")
+            this.randomSpanArray.push("<span>" + scrambledCharacters.charAt(Math.floor(Math.random() * scrambledCharacters.length)) + "</span>")
           }
           return this.randomSpanArray
         };
@@ -72,7 +74,7 @@
 
         //set the contents of merged array to body
         Scrambler.prototype.setScrambledMessage = function(mergedArray){
-        	var result = mergedArray.join();
+          var result = mergedArray.join();
           $("body").html(result);
         };
 
@@ -80,14 +82,14 @@
         scramble = new Scrambler("Thanks for this opportunity!")
         scramble.buildScrambler()
 
-			})(jQuery);
-		</script>
-		<style>
-			body {
-				font-family: monospace;
+      })(jQuery);
+    </script>
+    <style>
+      body{
+        font-family: monospace;
       }
 		</style>
-	</head>
+  </head>
   <body>
   </body>
 </html>
